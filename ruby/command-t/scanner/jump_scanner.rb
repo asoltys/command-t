@@ -31,13 +31,10 @@ module CommandT
     include VIM::PathUtilities
 
     def paths
-      jumps_with_filename = jumps.select do |line|
-        line_contains_filename?(line)
-      end
-      filenames = jumps_with_filename[1..-2].map do |line|
-        relative_path_under_working_directory line.split[3]
-      end
-      filenames.sort.uniq
+      f = File.open('/home/adam/.NERDTreeBookmarks')
+      filenames = []
+      f.each {|l| filenames.push l.split(" ")[1]}
+      filenames.compact.sort.uniq
     end
 
   private

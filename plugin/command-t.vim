@@ -104,11 +104,12 @@ function CommandTAcceptSelectionTab()
 endfunction
 
 function CommandTAcceptSelectionSplit()
-  ruby $command_t.accept_selection :command => 'sp'
+  ruby $command_t.accept_selection :command => 'NERDTree'
+  NERDTreeToggle()
 endfunction
 
 function CommandTAcceptSelectionVSplit()
-  ruby $command_t.accept_selection :command => 'vs'
+  ruby $command_t.accept_selection :command => 'sp'
 endfunction
 
 function CommandTToggleFocus()
